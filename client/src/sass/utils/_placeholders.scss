@@ -1,0 +1,6 @@
+// Takes highlight off of element - primarily used for form input elements.
+%nohighlight{
+    &:active, &:focus{
+        outline: none;
+    }
+}

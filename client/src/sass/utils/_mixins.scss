@@ -1,0 +1,32 @@
+// CSS Flex Template
+@mixin flex($dir: row, $wrap: nowrap) {
+    & {
+        display: flex;
+        flex-direction: $dir;
+        flex-wrap: $wrap;
+        @content;
+    }
+}
+
+// CSS Grid Template
+@mixin grid($temp: 1fr #{"/"} 1fr, $areas: none) {
+    & {
+        display: grid;
+        grid-template: $temp;
+        grid-template-areas: $areas;
+        @content;
+    }
+}
+
+// Media Query Template
+@mixin mq($break) {
+    @if map-has-key($map: $break_points, $key: $break) {
+        & {
+            @media only screen and (min-width: map-get($map: $break_points, $key: $break)) {
+                @content;
+            }
+        }
+    } @else {
+        @warn "#{$break} key was not found in the break-points map.";
+    }
+}

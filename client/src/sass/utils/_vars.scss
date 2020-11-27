@@ -1,0 +1,46 @@
+// ========================
+// = Font Settings ========
+// ========================
+
+    // == Font Stack ==
+    @import "fonts";
+
+    $font_stack-primary: "Roboto", sans-serif;
+
+    // == Font Weight ==
+
+    $font_weight: (
+        thin: 100,
+        normal: 400,
+        bold: 700,
+    );
+
+    // == Font Size ==
+    $font_sizes: (
+        xsmall: .6rem,
+        small: .8rem,
+        normal: 1rem,
+        large: 1.2rem,
+        xlarge: 1.6rem,
+    );
+    
+// ========================
+// = Color Settings =======
+// ========================
+
+    // == Color Def ==
+    $colors: (
+        black: #242831,
+        white: #E6E6E6,
+        blue: #4293EA,
+        green: #62C654,
+    );
+
+// ========================
+// = Break Point Settings =
+// ========================
+
+$break_points: (
+    tablet: 768px,
+    desktop: 1024px,
+);

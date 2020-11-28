@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 // React Hook Form
 import { useForm } from 'react-hook-form';
 
+// React Router DOM
+import { useHistory } from 'react-router-dom';
+
 // Geocode import for location services.
 import Geocode from "react-geocode";
 
@@ -11,7 +14,7 @@ import { ReactComponent as LocateArrow } from '../Assets/Locate.svg';
 import { ReactComponent as Loading } from '../Assets/Loading.svg';
 import { ReactComponent as Cancel } from '../Assets/Cancel.svg';
 
-export default function Form() {
+export default function Home({ location, setLocation }) {
   // Position will hold a string with the value of city, state information. (Ex. 'Burnsville, Minnesota')
   const [position, setPosition] = useState(null);
 
@@ -25,16 +28,21 @@ export default function Form() {
   // React Hook Form values.
   const { register, handleSubmit, setValue, errors } = useForm();
 
+  // Browser History for pushing.
+  const history = useHistory();
+
   // On submit callback given to react-hook-form's `handleSubmit` in the form's jsx element.
   const onSubmit = data => {
     if (!!data && Object.keys(data).length) {
       // If data value is truthy and the truthy object has at least one key/value pair.
       // Location is derived from user input and can be accessed through react hook form's data object.  
-      console.log(data)
+      setLocation(data.location);
+      history.push('/history');
     } else if (!!position && typeof position === 'string') {
       // If position is truth and value of position is typeof string.
       // Location was geolocated and the city/state name can be accessed through the `position` value.
-      console.log(position);
+      setLocation(position);
+      history.push('/weather');
     } else {
       // Neither above passed && React Hook Form didn't detect an error.. something went wrong.
       // Set a loading error to display.
@@ -46,6 +54,8 @@ export default function Form() {
       setPosition(null);
       // Reset react-hook-form value to an empty string.
       setValue('location', '', { shouldValidate: false });
+      // Reset overall location to null.
+      setLocation(null);
     }
   };
 

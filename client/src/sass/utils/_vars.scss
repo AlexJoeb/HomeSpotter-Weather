@@ -5,7 +5,7 @@
     // == Font Stack ==
     @import "fonts";
 
-    $font_stack-primary: "Roboto", sans-serif;
+    $font_stack-primary: "Roboto Mono", arial, sans-serif;
 
     // == Font Weight ==
 
@@ -31,9 +31,11 @@
     // == Color Def ==
     $colors: (
         black: #242831,
+        gray: #a4a4a4,
         white: #E6E6E6,
         blue: #4293EA,
         green: #62C654,
+        red: #F46A6A,
     );
 
 // ========================

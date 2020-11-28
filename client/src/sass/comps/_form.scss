@@ -1,0 +1,54 @@
+.form {
+  &__errors {
+    &--error {
+      color: color(red);
+    }
+  }
+
+  &__flex {
+    @include flex {
+      align-items: center;
+    }
+  }
+
+  &__location {
+    &--arrow, &--cancel {
+      @extend %hover;
+    }
+  }
+
+  &__inputs {
+    width: 60%;
+    margin-left: 15px;
+    &--input {
+      height: 30px;
+      width: 100%;
+      
+      background: color(white);
+      
+      border: none;
+      border-bottom: 3px solid color(gray);
+      border-left: 3px solid color(gray);
+      border-radius: 6px;
+
+      text-indent: 5px;
+
+      @extend %nohighlight;
+    }
+  }
+
+  &__submit {
+    margin-top: 15px;
+    background: color(blue);
+    color: color(white);
+    font-weight: fw(bold);
+    border: none;
+    border-bottom: 3px solid color(blue, xdark);
+    border-left: 3px solid color(blue, xdark);
+    border-radius: 5px;
+    padding: 5px 15px;
+
+    @extend %hover;
+    @extend %nohighlight;
+  }
+}

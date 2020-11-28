@@ -1,0 +1,133 @@
+.weather {
+  &__header {
+    width: 100%;
+    height: 350px;
+    padding: 15px;
+    background: color(white);
+    border-bottom: 5px solid color(gray);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    @include grid($temp: 25px 1fr / 1fr, $areas: "top" "bottom");
+
+    &--loading {
+      grid-area: bottom;
+    }
+
+    &--change {
+      grid-area: top;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    &__content {
+      grid-area: bottom;
+      @include flex($dir: column) {
+        justify-content: center;
+        align-items: center;
+      }
+
+      text-align: left;
+
+      &--today {
+        // font-weight: fw(bold);
+        font-size: fs(large);
+      }
+
+      &--location {
+        font-weight: fw(bold);
+        font-size: fs(xxlarge);
+        margin: 0 0 15px;
+      }
+
+      &__temps {
+        @include flex {
+          justify-content: center;
+          align-items: center;
+        }
+        &--current {
+          font-size: fs(xxxlarge);
+          margin-right: 15px;
+        }
+      }
+
+      &__details {
+        margin-top: 15px;
+
+        @include flex {
+          align-items: center;
+          justify-content: center;
+        }
+
+        &--rain {
+          margin-right: 15px;
+        }
+
+        svg {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  &__body {
+    @include flex($dir: row, $wrap: wrap) {
+      justify-content: space-between;
+    }
+    max-width: 480px;
+    margin: 15px auto 0;
+  }
+
+  &__card {
+    flex-basis: 49%;
+    max-width: 260px;
+
+    background: color(white);
+    padding: 10px;
+    margin-bottom: 8px;
+
+    border-bottom: 4px solid color(gray);
+    border-left: 4px solid color(gray);
+    border-radius: 5px;
+
+    &__add {
+      @include flex {
+        justify-content: center;
+        align-items: center;
+      }
+
+      p {
+        font-size: fs(xxlarge);
+        font-weight: fw(bold);
+      }
+
+      border: none;
+      border-left: 3px solid color(gray);
+      border-bottom: 3px solid color(gray);
+
+      @extend %hover;
+      @extend %nohighlight;
+    }
+
+    &__temps {
+      @include grid($temp: 1fr / 1fr 1fr) &--current {
+        font-weight: fw(bold);
+        font-size: fs(xlarge);
+      }
+
+      &__info--details {
+        font-size: fs(xsmall);
+      }
+    }
+
+    svg {
+      margin-right: 5px;
+    }
+
+    &--date {
+      margin-bottom: 10px;
+    }
+  }
+}

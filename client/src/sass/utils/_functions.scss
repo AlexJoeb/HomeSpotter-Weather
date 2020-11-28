@@ -3,48 +3,50 @@
 // References the $shades map in _vars.scss
 // Example: color(white, dark, 1) -> #e4e4e4
 // - Shade and Opacity are optional.
-@function color($color, $shade: base, $opacity: 1){
-    @if map-has-key($map: $colors, $key: $color) {
-        $color: map-get($map: $colors, $key: $color);
-        $shades: (
-            xlight: lighten($color, 15%),
-            light: lighten($color, 10%),
-            base: $color,
-            dark: darken($color, 10%),
-            xdark: darken($color, 15%)
-        );
+@function color($color, $shade: base, $opacity: 1) {
+  @if map-has-key($map: $colors, $key: $color) {
+    $color: map-get(
+      $map: $colors,
+      $key: $color,
+    );
+    $shades: (
+      xlight: lighten($color, 15%),
+      light: lighten($color, 10%),
+      base: $color,
+      dark: darken($color, 10%),
+      xdark: darken($color, 15%),
+    );
 
-        @if map-has-key($map: $shades, $key: $shade){
-            @return rgba(map-get($shades, $shade), $opacity);
-        } @else {
-            @warn "#{$shade} was not found in #{$color}'s shade-palette.";
-        }
+    @if map-has-key($map: $shades, $key: $shade) {
+      @return rgba(map-get($shades, $shade), $opacity);
+    } @else {
+      @warn "#{$shade} was not found in #{$color}'s shade-palette.";
     }
-    @else {
-        @warn "#{$color} was not found in the color-palette.";
-    }
+  } @else {
+    @warn "#{$color} was not found in the color-palette.";
+  }
 }
 
 // Function: fs (Font Size)
 // The fs function returns a font-size when given a size.
 // References the $font__sizes map in _vars.scss
 // Example: fs(normal) -> 16px, fs(large) -> 24px
-@function fs($size: normal){
-    @if map-has-key($map: $font_sizes, $key: $size){
-        @return map-get($map: $font_sizes, $key: $size);
-    } @else {
-        @warn "Could not find #{$size} in the font size map.";
-    }
+@function fs($size: normal) {
+  @if map-has-key($map: $font_sizes, $key: $size) {
+    @return map-get($map: $font_sizes, $key: $size);
+  } @else {
+    @warn "Could not find #{$size} in the font size map.";
+  }
 }
 
 // Function: fw (Font Weight)
 // The fw function returns a font-weight when given a size.
 // References the $font__weight map in _vars.scss
 // Example: fw(normal) -> 400, fw(bold) -> 700
-@function fw($size: normal){
-    @if map-has-key($map: $font_weight, $key: $size){
-        @return map-get($map: $font_weight, $key: $size);
-    } @else {
-        @warn "Could not find #{$size} in the font weight map.";
-    }
+@function fw($size: normal) {
+  @if map-has-key($map: $font_weight, $key: $size) {
+    @return map-get($map: $font_weight, $key: $size);
+  } @else {
+    @warn "Could not find #{$size} in the font weight map.";
+  }
 }

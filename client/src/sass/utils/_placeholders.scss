@@ -1,13 +1,14 @@
 // Takes highlight off of element - primarily used for form input elements.
-%nohighlight{
-    &:active, &:focus{
-        outline: none;
-    }
+%nohighlight {
+  &:active,
+  &:focus {
+    outline: none;
+  }
 }
 
 // Shortcut for hover on elements.
 %hover {
-    &:hover {
-        cursor: pointer;
-    }
+  &:hover {
+    cursor: pointer;
+  }
 }

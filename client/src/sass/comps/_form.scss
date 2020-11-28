@@ -12,7 +12,8 @@
   }
 
   &__location {
-    &--arrow, &--cancel {
+    &--arrow,
+    &--cancel {
       @extend %hover;
     }
   }
@@ -23,9 +24,9 @@
     &--input {
       height: 30px;
       width: 100%;
-      
+
       background: color(white);
-      
+
       border: none;
       border-bottom: 3px solid color(gray);
       border-left: 3px solid color(gray);
